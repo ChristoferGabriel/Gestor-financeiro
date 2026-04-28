@@ -11,7 +11,7 @@ if ($_POST && isset($_POST['limpar'])) {
 $saldo = calcularSaldo();
 ?>
 
-<?php include 'header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="fas fa-history me-2 text-primary"></i>Histórico Completo</h2>

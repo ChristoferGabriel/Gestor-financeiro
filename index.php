@@ -17,7 +17,7 @@ if ($_POST && isset($_POST['excluir'])) {
 $saldo = calcularSaldo();
 ?>
 
-<?php include 'header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
 <!-- ALERTA DE SUCESSO (se houver exclusão) -->
 <?php if (isset($sucesso)): ?>
