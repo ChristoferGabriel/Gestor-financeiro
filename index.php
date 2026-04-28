@@ -1,6 +1,6 @@
 <?php
-require_once 'config.php';      // ✅ ADICIONADO
-require_once 'functions.php';
+require_once 'includes/config.php';      // ✅ ADICIONADO
+require_once 'includes/functions.php';
 verificarLogin();
 
 // Processar ADICIONAR

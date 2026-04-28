@@ -1,5 +1,5 @@
 <?php
-require_once 'functions.php';
+require_once 'includes/functions.php';
 verificarLogin();
 
 if ($_POST && isset($_POST['limpar'])) {
