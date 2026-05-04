@@ -1,17 +1,15 @@
 <?php
-require_once 'includes/config.php';      // ✅ ADICIONADO
+require_once 'includes/config.php';    
 require_once 'includes/functions.php';
 verificarLogin();
 
-// Processar ADICIONAR
 if ($_POST && isset($_POST['adicionar'])) {
     adicionarTransacao($_POST['nome'], $_POST['valor'], $_POST['tipo']);
 }
 
-// Processar EXCLUIR
 if ($_POST && isset($_POST['excluir'])) {
     removerTransacao($_POST['transacao_id']);
-    $sucesso = "✅ Transação excluída com sucesso!";
+    $sucesso = "Transação excluída com sucesso!";
 }
 
 $saldo = calcularSaldo();
@@ -19,7 +17,6 @@ $saldo = calcularSaldo();
 
 <?php include 'includes/header.php'; ?>
 
-<!-- ALERTA DE SUCESSO (se houver exclusão) -->
 <?php if (isset($sucesso)): ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <?php echo $sucesso; ?>
@@ -28,7 +25,7 @@ $saldo = calcularSaldo();
 <?php endif; ?>
 
 <div class="row mb-4">
-    <!-- Saldo Total -->
+//  saldo total
     <div class="col-md-4 mb-4">
         <div class="card border-0 shadow h-100">
             <div class="card-body text-center">
@@ -40,7 +37,7 @@ $saldo = calcularSaldo();
     </div>
 </div>
 
-<!-- Formulário de Nova Transação -->
+//    nova transação
 <div class="card shadow mb-4">
     <div class="card-header bg-primary text-white">
         <h5 class="mb-0"><i class="fas fa-plus me-2"></i>Nova Transação</h5>
@@ -72,8 +69,8 @@ $saldo = calcularSaldo();
         </form>
     </div>
 </div>
+//    ultimas transacoes
 
-<!-- Últimas Transações -->
 <div class="card shadow">
     <div class="card-header bg-secondary text-white">
         <h5 class="mb-0"><i class="fas fa-list me-2"></i>Últimas 5 Transações</h5>
@@ -120,7 +117,7 @@ $saldo = calcularSaldo();
                             </td>
                             <td><strong><?php echo calcularPorcentagem($transacao['valor'], $transacao['tipo']); ?>%</strong></td>
                             <td>
-                                <form method="POST" class="d-inline" onsubmit="return confirm('🗑️ Excluir #<?php echo $transacao['id']; ?>?')">
+                                <form method="POST" class="d-inline" onsubmit="return confirm(' Excluir #<?php echo $transacao['id']; ?>?')">
                                     <input type="hidden" name="transacao_id" value="<?php echo $transacao['id']; ?>">
                                     <button type="submit" name="excluir" class="btn btn-sm btn-outline-danger" title="Excluir">
                                         <i class="fas fa-trash"></i>
@@ -141,7 +138,7 @@ $saldo = calcularSaldo();
     </div>
 </div>
 
-</div> <!-- ✅ Fecha container do header.php -->
+</div> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
