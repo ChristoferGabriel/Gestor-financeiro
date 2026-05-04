@@ -4,9 +4,7 @@ require_once 'config.php';
 if (!isset($_SESSION['transacoes'])) {
     $_SESSION['transacoes'] = [];
 }
-/**
- * Calcula o saldo total
- */
+
 function calcularSaldo() {
     $saldo = 0;
     foreach ($_SESSION['transacoes'] as $transacao) {
@@ -19,16 +17,10 @@ function calcularSaldo() {
     return $saldo;
 }
 
-/**
- * Formata valor monetário
- */
 function formatarMoeda($valor) {
     return 'R$ ' . number_format($valor, 2, ',', '.');
 }
 
-/**
- * Calcula porcentagem da transação em relação ao total de receitas
- */
 function calcularPorcentagem($valor, $tipo) {
     $totalReceitas = 0;
     foreach ($_SESSION['transacoes'] as $transacao) {
@@ -46,9 +38,6 @@ function calcularPorcentagem($valor, $tipo) {
     }
 }
 
-/**
- * Adiciona nova transação
- */
 function adicionarTransacao($nome, $valor, $tipo) {
     $transacao = [
         'id' => count($_SESSION['transacoes']) + 1,
@@ -61,16 +50,10 @@ function adicionarTransacao($nome, $valor, $tipo) {
     $_SESSION['transacoes'][] = $transacao;
 }
 
-/**
- * Limpa histórico
- */
 function limparHistorico() {
     $_SESSION['transacoes'] = [];
 }
 
-/**
- * Verifica se usuário está logado
- */
 function verificarLogin() {
     if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
         header('Location: login.php');
@@ -78,9 +61,6 @@ function verificarLogin() {
     }
 }
 
-/**
- * Remove uma transação pelo ID
- */
 function removerTransacao($id) {
     foreach ($_SESSION['transacoes'] as $key => $transacao) {
         if ($transacao['id'] == $id) {
