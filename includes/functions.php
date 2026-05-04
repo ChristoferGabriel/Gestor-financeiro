@@ -32,9 +32,7 @@ function calcularPorcentagem($valor, $tipo) {
     
     if ($totalReceitas == 0) return 0;
     
-    if ($tipo === 'receita') {
         return round(($valor / $totalReceitas) * 100, 1);
-}
 
 function adicionarTransacao($nome, $valor, $tipo) {
     $transacao = [
