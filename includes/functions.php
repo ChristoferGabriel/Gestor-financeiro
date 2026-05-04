@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 
+
 if (!isset($_SESSION['transacoes'])) {
     $_SESSION['transacoes'] = [];
 }
@@ -33,9 +34,6 @@ function calcularPorcentagem($valor, $tipo) {
     
     if ($tipo === 'receita') {
         return round(($valor / $totalReceitas) * 100, 1);
-    } else {
-        return round(($valor / $totalReceitas) * 100, 1);
-    }
 }
 
 function adicionarTransacao($nome, $valor, $tipo) {
@@ -60,7 +58,7 @@ function verificarLogin() {
         exit();
     }
 }
-
+    
 function removerTransacao($id) {
     foreach ($_SESSION['transacoes'] as $key => $transacao) {
         if ($transacao['id'] == $id) {
