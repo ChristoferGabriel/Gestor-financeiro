@@ -1,6 +1,9 @@
 <?php
 require_once 'config.php';
 
+if (!isset($_SESSION['transacoes'])) {
+    $_SESSION['transacoes'] = [];
+}
 /**
  * Calcula o saldo total
  */
